@@ -1,0 +1,20 @@
+{include 'public/header'}
+<div class="msgbox login">
+    <img src="{:_img('logo.jpg')}" class="login-logo"></img>
+    <p>信院小屋账号登陆</p>
+    <div class="ipt">
+        <input class="ipt-account" type="text" placeholder="邮箱/用户名/用户id">
+        <input class="ipt-account" type="password" placeholder="密码">
+    </div>
+    <div class="ipt">
+        <button class="btn login-btn">登录</button>
+    </div>
+    <div class="ipt ipt-min">
+        <div class="r" style="text-align: right;">
+            <a href="{:url('register')}">立即注册</a>
+            <span class="cut"></span>
+            <a href="{:url('getback')}">找回密码</a>
+        </div>
+    </div>
+</div>
+{include 'public/footer'}

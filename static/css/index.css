@@ -1,0 +1,433 @@
+body {
+    font-family: arial, "Microsoft Yahei", "Hiragino Sans GB", sans-serif;
+    background: #fbfbfb;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    min-width: 1080px;
+    height: 46px;
+    width: 100%;
+    background: #3e94d1dd;
+    line-height: 46px;
+}
+
+.header>.left {
+    cursor: pointer;
+    display: inline-block;
+    height: 46px;
+    width: 15%;
+}
+
+.logo {
+    width: 46px;
+    height: 46px;
+}
+
+.title {
+    color: #ffffff;
+    font-size: 20px;
+    vertical-align: top;
+}
+
+.nav {
+    height: 46px;
+    min-width: 70%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.nav>.nav-item {
+    color: #ffffff;
+    min-width: 50px;
+    padding: 0 16px;
+    text-align: center;
+    background: #58a2d7;
+    float: left;
+}
+
+.nav-item.active {
+    background: #3e94d1dd;
+}
+
+.nav>.nav-item:hover {
+    background: #3e94d1dd;
+}
+
+.nav>.right {
+    cursor: pointer;
+    height: 46px;
+}
+
+.nav>div.right {
+    padding: 0;
+    float: right;
+}
+
+.nav>div.right:hover .u-list {
+    display: block;
+}
+
+.user-avatar {
+    border-radius: 100%;
+}
+
+.min.user-avatar {
+    width: 30px;
+    height: 30px;
+}
+
+.username {
+    font-size: 16px;
+}
+
+.text-top,
+.text-top::before {
+    vertical-align: top;
+}
+
+.nav>.right>.u-list {
+    display: none;
+    color: #000000;
+    box-shadow: 0px 0px 5px 0px #c7c7c7;
+    border-top: 0;
+    padding: 4px;
+    background: #ffffff;
+    position: absolute;
+    top: 46px;
+    z-index: 100;
+    cursor: auto;
+}
+
+.main {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 1080px;
+    padding: 10px;
+}
+
+.main>.left {
+    display: inline-block;
+    width: 820px;
+}
+
+.main>.right {
+    display: inline-block;
+}
+
+.main>.right>div {
+    width: 240px;
+}
+
+.main>.right>div:not(:first-child),
+.main>.right>.float-box>div:not(:first-child) {
+    margin-top: 10px;
+}
+
+.carousel {
+    border-radius: 4px;
+    width: 820px;
+    height: 350px;
+    background: #69a1e9;
+    overflow: hidden;
+    position: relative;
+}
+
+.car-item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    transition: 1.5s;
+    opacity: 0;
+}
+
+.carousel>.car-title {
+    position: absolute;
+    bottom: 0;
+    background: #00000050;
+    width: 100%;
+    height: 40px;
+    z-index: 10;
+}
+
+.car-title>.car-page {
+    position: absolute;
+    right: 10px;
+    top: 30px;
+}
+
+.car-title>span {
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 40px;
+    margin-left: 4px;
+}
+
+.car-page>.car-page-item {
+    cursor: pointer;
+    width: 45px;
+    height: 4px;
+    background: #ffffff;
+    float: left;
+    margin-left: 4px;
+}
+
+.car-item>.car-img {
+    width: 100%;
+    height: 100%;
+}
+
+.msgbox {
+    font-family: "Microsoft YaHei";
+    border: 1px solid #e9e9e9;
+    box-shadow: 0px 0px 4px #e9e9e9;
+    border-radius: 6px;
+    background: #ffffff;
+}
+
+.msgbox>.box-title {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background: #fff;
+    height: 30px;
+    border-bottom: 1px solid #e9e9e9;
+    padding: 5px;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.m-top {
+    width: 100%;
+    height: 350px;
+}
+
+.user>.user-avatar {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+}
+
+.user {
+    padding: 8px;
+}
+
+.user-msg>.username {
+    font-weight: bold;
+}
+
+.user>.user-msg {
+    vertical-align: top;
+    display: inline-block;
+    margin-left: 4px;
+}
+
+.box-content {
+    overflow: hidden;
+}
+
+.box-content>.user {
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.user-msg>.user-sign {
+    margin-top: 4px;
+    display: block;
+    font-size: 14px;
+}
+
+.user-msg>.user-group {
+    display: inline-block;
+    background: #E91E63;
+    border-radius: 4px;
+    font-size: 10px;
+    padding: 2px 4px;
+    color: #fff;
+}
+
+.mag-top {
+    margin-top: 4px;
+}
+
+.box-h {
+    margin-left: 4px;
+    border-left: 3px solid #3E94D1;
+    padding-left: 4px;
+    font-size: 18px;
+}
+
+ul.article-list {
+    margin: 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-left: 0;
+}
+
+ul.article-list>li {
+    padding: 2px;
+    padding-left: 8px;
+    list-style: none;
+}
+
+ul.article-list>li>a {
+    display: inline-block;
+    font-size: 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    color: #888888;
+}
+
+ul.article-list {
+    padding: 4px;
+}
+
+ul.article-list.plate>li {
+    width: calc(50% - 14px);
+    display: inline-block;
+}
+
+ul.article-list>li:hover {
+    background: rgb(221, 221, 221);
+}
+
+.msgbox>.box-footer {
+    height: 50px;
+    border-top: 1px solid #f1f1f1;
+    width: 100%;
+}
+
+.btn {
+    padding: 2px 10px;
+    color: #fff;
+    background: #3e94d1;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 0;
+    outline: none;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn.btn-l {
+    font-size: 20px;
+}
+
+.content {
+    margin-top: 10px;
+}
+
+.article-list>.art-item {
+    margin-bottom: 10px;
+    padding: 10px 30px 0 30px;
+    width: 760px;
+    background: #fff;
+    border: 1px solid #f1f1f1;
+    box-shadow: 0px 0px 4px #e9e9e9;
+    border-radius: 4px;
+}
+
+.art-top {
+    display: block;
+    color: #000000;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.art-top:hover {
+    color: #3E94D1;
+}
+
+.art-cont {
+    margin-bottom: 10px;
+}
+
+.art-cont img {
+    cursor: pointer;
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.art-cont p {
+    margin: 0;
+    color: #888888;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.art-footer {
+    line-height: 35px;
+    color: #c0c0c0;
+}
+
+.art-footer>.user-avatar {
+    width: 30px;
+    height: 30px;
+}
+
+.right {
+    float: right;
+}
+
+.art-footer span {
+    margin-left: 4px;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+.art-footer>.right>span {
+    margin-left: 15px;
+}
+
+.art-footer>.right .iconfont {
+    margin-right: 4px;
+}
+
+.box-content.search {
+    padding: 8px;
+}
+
+.search-box {
+    border: 2px solid #6EB5E8;
+    border-radius: 4px;
+    line-height: 25px;
+    padding: 0 4px;
+}
+
+.search-box>.search-keydown {
+    border: 0;
+    line-height: 25px;
+    outline: none;
+    width: 182px;
+}
+
+.search-box>#search {
+    border: 0;
+    outline: none;
+    float: right;
+    height: 28px;
+    width: 28px;
+    cursor: pointer;
+    background: #ffffff;
+}

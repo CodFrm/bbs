@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    {:_css('index')}
+    {if input('ctrl')=='login'}{:_css('login')}{/if}
+    {:_css('iconfont')}
+    {:_js('jquery-3.2.1.min')}
+    {:_js('index')}
+</head>
+
+<body>
+<div class="header">
+    <div class="left">
+        <img src="{:_img('logo.jpg')}" class="logo">
+        <span class="title">信院小屋</span>
+    </div>
+    <div class="nav">
+        <a href="#" class="nav-item active">首页</a>
+        <a href="#" class="nav-item">板块</a>
+        <a href="#" class="nav-item">会员互动</a>
+        <a href="#" class="nav-item">资源分享</a>
+        <a href="#" class="nav-item">校内校外</a>
+        <a href="#" class="nav-item">失物招领</a>
+        <div class="right nav-item">
+            <img src="{:_img('avatar.png')}" class="min user-avatar" style="padding:8px;">
+            <span class="title username">Farmer</span>
+            <i class="iconfont icon-xia text-top" style="color:#fff"></i>
+            <div class="u-list">
+                <span>用户组:</span>
+                <span>管理员</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main">

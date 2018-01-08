@@ -1,0 +1,71 @@
+.login {
+    margin: 0 auto;
+    border-radius: 0;
+    width: 820px;
+    height: 600px;
+    padding: 20px;
+}
+
+.login-logo {
+    display: block;
+    margin: 0 auto;
+    margin-top: 40px;
+    height: 60px;
+    width: 60px;
+}
+
+.login>p {
+    display: block;
+    margin-top: 10px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.ipt {
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.ipt-account {
+    outline: none;
+    width: 100%;
+    padding: 16px 12px;
+    font-size: 16px;
+    border: 0;
+    box-shadow: 0px 0px 1px 0px #c7c7c7;
+}
+
+.ipt-account:not(:first-child) {
+    margin-top: 15px;
+}
+
+.login-btn {
+    margin: 0 auto;
+    border-radius: 0;
+    width: calc(100% + 24px);
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+}
+
+.ipt-min.ipt {
+    margin-top: 10px;
+    width: 400px;
+}
+
+.ipt-min.ipt>* {
+    font-size: 12px;
+}
+
+.ipt-min>.r>a {
+    color: #979797;
+}
+
+.cut{
+    padding-left: 4px;
+}
+.cut::before {
+    content: '|';
+    font-size: 12px;
+}
