@@ -21,13 +21,13 @@ function _img($file){
 }
 
 /**
- * 判断变量是否设置
+ * 对变量进行验证
  * @author Farmer
  * @param $array
  * @param $mode
  * @return bool
  */
-function isExist($array, $mode, &$data = '') {
+function verify($array, $mode, &$data = '') {
     foreach ($mode as $key => $value) {
         if (is_string($value)) {
             if (empty($array[$key])) {

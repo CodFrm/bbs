@@ -3,11 +3,11 @@
     <img src="{:_img('logo.jpg')}" class="login-logo"></img>
     <p>信院小屋账号注册</p>
     <div class="ipt">
-        <input class="ipt-account" type="text" name="email" placeholder="注册邮箱">
-        <p style="text-align: right;">请输入注册的邮箱账号,进行邮箱验证</p>
+        <input id="email" class="ipt-account" type="text" name="email" placeholder="注册邮箱">
+        <p style="font-size: 12px;margin-top: 8px;">请输入注册的邮箱账号,系统将会发送一封邮件到你的邮箱进行下一步操作</p>
     </div>
     <div class="ipt">
-        <button class="btn login-btn">登录</button>
+        <button id="reg" class="btn login-btn">注册</button>
     </div>
     <div class="ipt ipt-min">
         <div class="r" style="text-align: right;">
@@ -17,4 +17,30 @@
         </div>
     </div>
 </div>
+<script>
+    $(function () {
+        $('#reg').click(function () {
+            $('#reg').attr('disabled', "true");
+            $.ajax({
+                url: "{:url('email')}",
+                date: {email: $('email').val()},
+                success: function (json) {
+                    if (json.code != 0) {
+                        if ($('.error').length <= 0) {
+                            $('#email').after('<span class="iconfont icon-cuowu error">' + json.msg + '</span>');
+                        }
+                    } else {
+                        MessageBox.prompt('邮件已发送到你的邮箱,请注意查收');
+                        setTimeout(function () {
+                            window.location = "__HOME__";
+                        }, 4000);
+                    }
+                },
+                error: function () {
+                    console.log('err');
+                }
+            });
+        });
+    });
+</script>
 {include 'public/footer'}

@@ -34,6 +34,7 @@
     font-size: 16px;
     border: 0;
     box-shadow: 0px 0px 1px 0px #c7c7c7;
+    box-sizing: border-box;
 }
 
 .ipt-account:not(:first-child) {
@@ -68,4 +69,12 @@
 .cut::before {
     content: '|';
     font-size: 12px;
+}
+
+span.error{
+    font-size: 12px;
+    text-align: right;
+    color: #ff1010;
+    display: block;
+    margin-top: 4px;
 }

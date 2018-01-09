@@ -1,3 +1,7 @@
+"use strict";
+/**
+ * 简单的图片轮播
+ */
 $.fn.carousel = function (param) {
     var images = param['images'];
     var pages = '<div class="car-title">' +
@@ -50,4 +54,36 @@ $.fn.carousel = function (param) {
         fobj.selectPage(index);
     });
     return this;
+}
+
+/**
+ * 页面弹出信息框
+ */
+window.MessageBox = {
+    prompt: function (msgStr) {
+        var prompt = {},
+            call = {};
+        var html = '<div class="message-box prompt"><i class="prompt-icon iconfont icon-success"></i>';
+        html += '<span>' + msgStr + '</span></div>';
+        prompt.success = function (func) {
+            call.success = func;
+            return prompt;
+        }
+        $('body').append(html);
+        setTimeout(function () {
+            $('.message-box.prompt').css({
+                'opacity': 1
+            });
+        }, 100);
+        setTimeout(function () {
+            if (call.success != undefined) call.success();
+            $('.message-box.prompt').css({
+                'opacity': 0
+            });
+            setTimeout(function () {
+                $('.message-box.prompt').remove();
+            }, 1000);
+        }, 3000);
+        return prompt;
+    }
 }

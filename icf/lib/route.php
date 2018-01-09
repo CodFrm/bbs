@@ -194,7 +194,7 @@ class route {
                 if ($val = _get($value->getName())) {
                     $param [] = $val;
                 } else {
-                    $param [] = $value->getDefaultValue();
+                    $param [] = $value->isDefaultValueAvailable() ? $value->getDefaultValue() : '';
                 }
             }
             $data = call_user_func_array([
@@ -209,6 +209,7 @@ class route {
             }
         } catch (\Exception $e) {
             if (input('config.debug')) {
+                \icf\lib\other\HttpHelp::setStatusCode(404);
                 if (input('config.log')) {
                     index::$log->error('[file] ' . $e->getFile() . ' [line] ' . $e->getLine() . ' [error] ' . $e->getMessage());
                 }
