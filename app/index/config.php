@@ -11,7 +11,8 @@
 return [
     'route' => [
         '*' => [
-            'users#p' => 'index->index->users'
+            'users#p' => 'index->index->users',
+            'test'=>'login->index'
         ]
     ]
 ];

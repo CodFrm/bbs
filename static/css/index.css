@@ -434,9 +434,9 @@ ul.article-list > li:hover {
 
 .message-box {
     position: fixed;
+    margin: 0 auto;
     top: 50%;
-    left: 50%;
-    margin-left: -250px;
+    left: 0;
     margin-top: -125px;
     width: 500px;
     height: 250px;
@@ -454,7 +454,6 @@ ul.article-list > li:hover {
     height: 40px;
     line-height: 40px;
     text-align: center;
-    margin-left: -75px;
     margin-top: -20px;
     border-radius: 4px;
     background: rgb(212, 212, 212);
@@ -465,9 +464,13 @@ ul.article-list > li:hover {
 .message-box > .prompt-icon {
     float: left;
     margin: 0 8px;
+}
+.prompt-icon.iconfont.icon-success{
     color: #35D59C;
 }
-
+.prompt-icon.iconfont.icon-warning{
+    color: #ff1010;
+}
 .message-box > .message-header {
     height: 40px;
     line-height: 40px;

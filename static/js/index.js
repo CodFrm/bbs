@@ -60,19 +60,24 @@ $.fn.carousel = function (param) {
  * 页面弹出信息框
  */
 window.MessageBox = {
-    prompt: function (msgStr) {
+    prompt: function (msgStr, icon) {
         var prompt = {},
             call = {};
-        var html = '<div class="message-box prompt"><i class="prompt-icon iconfont icon-success"></i>';
+        icon = icon || 'success';
+        var html = '<div class="message-box prompt"><i class="prompt-icon iconfont icon-' + icon + '"></i>';
         html += '<span>' + msgStr + '</span></div>';
         prompt.success = function (func) {
             call.success = func;
             return prompt;
         }
         $('body').append(html);
+        $('.message-box.prompt').css({
+            'width': $('.message-box.prompt').width() + 'px',
+            'right':0
+        });
         setTimeout(function () {
             $('.message-box.prompt').css({
-                'opacity': 1
+                'opacity': 1,
             });
         }, 100);
         setTimeout(function () {

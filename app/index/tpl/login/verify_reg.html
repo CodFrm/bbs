@@ -1,17 +1,20 @@
 {include 'public/header'}
 <div class="msgbox login">
     <img src="{:_img('logo.jpg')}" class="login-logo"></img>
-    <p>信院小屋账号登录</p>
+    <p>信院小屋账号注册</p>
     <form id="post" class="ipt">
-        <input class="ipt-account" type="text" name="username" placeholder="邮箱/用户名/用户id">
-        <input class="ipt-account" type="password" name="password" placeholder="密码">
+        <input name="email" type="hidden" value="{:_get('email')}">
+        <input name="act" type="hidden" value="{:_get('act')}">
+        <input name="username" type="text" class="ipt-account" placeholder="用户名">
+        <input name="password" type="password" class="ipt-account" placeholder="密码">
+        <input name="confirm" type="password" class="ipt-account" placeholder="再输入一次密码">
     </form>
     <div class="ipt">
-        <button id="login" class="btn login-btn">登录</button>
+        <button id="reg" class="btn login-btn">注册</button>
     </div>
     <div class="ipt ipt-min">
         <div class="r" style="text-align: right;">
-            <a href="{:url('register')}">立即注册</a>
+            <a href="{:url('index')}">已有账号？</a>
             <span class="cut"></span>
             <a href="{:url('getback')}">找回密码</a>
         </div>
@@ -19,25 +22,30 @@
 </div>
 <script>
     $(function () {
-        $('#login').click(function () {
-            $('#reg').attr('disabled', 'true');
+        $('#reg').click(function () {
             $('.error').remove();
+            if ($('input[name=password]').val() != $('input[name=confirm]').val()) {
+                $('input[name=confirm]').after('<span class="iconfont icon-cuowu error">两次输入的密码不同</span>');
+                return;
+            }
+            $('#reg').attr('disabled', 'true');
+
             $.ajax({
-                url: "{:url('login')}",
-                type: 'get',
+                url: "{:url('reg')}",
+                type: 'post',
                 data: $('#post').serialize(),
                 success: function (json) {
                     if (json.code != 0) {
+                        $('#reg').removeAttr('disabled');
                         switch (json.code) {
                             case 10001:
-                            case 10002:
-                            case 10003:{
+                            case 10002: {
                                 $('input[name=username]').after('<span class="iconfont icon-cuowu error">' + json.msg + '</span>');
                                 break
                             }
                             case 10004:
                             case 10005:
-                            case 10006:{
+                            case 10006: {
                                 $('input[name=password]').after('<span class="iconfont icon-cuowu error">' + json.msg + '</span>');
                                 break;
                             }
@@ -50,15 +58,14 @@
                             }
                         }
                     } else {
-                        MessageBox.prompt('登录成功,3秒后自动跳转');
+                        MessageBox.prompt('注册成功,3秒后自动跳往登陆页面');
                         setTimeout(function () {
-                            window.location = "__HOME__";
+                            window.location = "{:url('index')}";
                         }, 3000);
                     }
                 },
                 error: function () {
-                    MessageBox.prompt('系统发生了一个错误!');
-                    $('#reg').removeAttr('disabled');
+                    console.log('err');
                 }
             });
         });

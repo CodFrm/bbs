@@ -19,12 +19,22 @@ namespace icf\lib;
  */
 class view {
     private static $tplVar = array();
+    private $module = '';
 
     public function __construct() {
         //检查缓存目录
         if (!file_exists(__ROOT_ . '/app/cache/tpl')) {
             mkdir(__ROOT_ . '/app/cache/tpl', 0777, true);
         }
+        $this->module = input('module');
+    }
+
+    /**
+     * 设置模板所在的模块
+     * @param $module
+     */
+    public function setModule($module) {
+        $this->module = $module;
     }
 
     /**
@@ -66,9 +76,9 @@ class view {
             $filename = input('action');
         }
         if (strpos($filename, '/') === false) {
-            $path = __ROOT_ . '/app/' . input('model') . '/tpl/' . input('ctrl') . '/' . $filename;
+            $path = __ROOT_ . '/app/' . $this->module . '/tpl/' . input('ctrl') . '/' . $filename;
         } else {
-            $path = __ROOT_ . '/app/' . input('model') . '/tpl/' . $filename;
+            $path = __ROOT_ . '/app/' . $this->module . '/tpl/' . $filename;
         }
         $suffix = '.' . input('config.tpl_suffix');
         if (substr($path, strlen($path) - strlen($suffix), strlen($suffix)) != $suffix) {

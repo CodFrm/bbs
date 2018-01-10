@@ -1,0 +1,18 @@
+{include 'public/header'}
+<div class="msgbox login">
+    <img src="{:_img('logo.jpg')}" class="login-logo"></img>
+    <p style="color: #ff7038">{$errType}</p>
+    <div class="ipt" style="text-align: center;">
+        <p style="font-size: 18px;">{$error}</p>
+        <br>
+        <p>三秒后将自动跳转至<br><a href="{$to[0]}" style="color: #3e94d1;font-size: 18px;">{$to[1]}</a></p>
+    </div>
+</div>
+<script>
+    $(function () {
+        setTimeout(function () {
+            window.location = "{$to[0]}";
+        }, 3000);
+    })
+</script>
+{include 'public/footer'}
