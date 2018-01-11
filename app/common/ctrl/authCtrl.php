@@ -8,8 +8,9 @@
  *============================
  */
 
-namespace app\common;
+namespace app\common\ctrl;
 
+use app\common\model\user;
 use app\index\ctrl\index;
 use icf\lib\db;
 

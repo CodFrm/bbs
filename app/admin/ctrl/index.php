@@ -12,7 +12,7 @@
 namespace app\admin\ctrl;
 
 
-use app\common\authCtrl;
+use app\common\model\authCtrl;
 
 class index extends authCtrl {
 

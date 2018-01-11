@@ -8,7 +8,7 @@
  *============================
  */
 
-namespace app\common;
+namespace app\common\model;
 
 
 use icf\lib\db;
@@ -76,7 +76,7 @@ class user {
         $ctrl = input('ctrl');
         $action = input('action');
         while ($msg = $rec->fetch()) {
-            $auth[$msg['auth_interface']]=1;
+            $auth[$msg['auth_interface']] = 1;
             if ($count = substr_count($msg['auth_interface'], '->')) {
                 if ($count == 1) {
                     if (($module . '->' . $ctrl) == $msg['auth_interface']) {
@@ -111,9 +111,9 @@ class user {
                     }
                     return '错误的令牌';
                 }, 'email'], 'msg' => '错误的令牌'],
-            'username' => ['func' => ['\app\common\user::isUser'], 'regex' => ['/^[\x{4e00}-\x{9fa5}\w\@\.]{2,16}$/u', '用户名格式错误'], 'msg' => '用户名不能为空', 'sql' => 'username'],
+            'username' => ['func' => ['\app\common\model\user::isUser'], 'regex' => ['/^[\x{4e00}-\x{9fa5}\w\@\.]{2,16}$/u', '用户名格式错误'], 'msg' => '用户名不能为空', 'sql' => 'username'],
             'password' => ['regex' => ['/^[\\~!@#$%^&*()-_=+|{}\[\], .?\/:;\'\"\d\w]{6,16}$/', '密码不符合规范'], 'msg' => '请输入密码', 'sql' => 'password'],
-            'email' => ['func' => ['\app\common\user::isEmail'], 'regex' => ['/^[\w\.]{1,16}@(qq\.com|163\.com|outlook\.com)$/', '邮箱格式错误'], 'msg' => '邮箱不能为空', 'sql' => 'email'],
+            'email' => ['func' => ['\app\common\model\user::isEmail'], 'regex' => ['/^[\w\.]{1,16}@(qq\.com|163\.com|outlook\.com)$/', '邮箱格式错误'], 'msg' => '邮箱不能为空', 'sql' => 'email'],
         ], $data);
         if ($ret === true) {
             //添加用户
@@ -153,7 +153,7 @@ class user {
      * @return string
      */
     public static function encodePwd($uid, $pwd) {
-        $str = hash('sha256', $uid . $pwd);
+        $str = hash('sha256', $uid . $pwd . config('pwd_encode_salt'));
         return $str;
     }
 

@@ -11,7 +11,7 @@
 namespace app\index\ctrl;
 
 
-use app\common\authCtrl;
+use app\common\ctrl\authCtrl;
 
 class index extends authCtrl {
     public function index() {

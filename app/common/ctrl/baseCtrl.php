@@ -9,7 +9,7 @@
  */
 
 
-namespace app\common;
+namespace app\common\ctrl;
 
 
 class baseCtrl {

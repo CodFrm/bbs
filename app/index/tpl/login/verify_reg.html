@@ -65,7 +65,8 @@
                     }
                 },
                 error: function () {
-                    console.log('err');
+                    MessageBox.prompt('系统发生了一个错误!','warning');
+                    $('#reg').removeAttr('disabled');
                 }
             });
         });

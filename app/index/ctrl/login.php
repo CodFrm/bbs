@@ -11,8 +11,8 @@
 
 namespace app\index\ctrl;
 
-use app\common\baseCtrl;
-use app\common\user;
+use app\common\ctrl\baseCtrl;
+use app\common\model\user;
 
 
 class login extends baseCtrl {
@@ -68,7 +68,7 @@ class login extends baseCtrl {
 
     public function email($email) {
         $ret = verify($_GET, [
-            'email' => ['func' => ['\app\common\user::isEmail'], 'regx' => ['/^[\w\.]{1,16}@(qq\.com|163\.com|outlook\.com)$/', '错误的邮箱格式'], 'msg' => '邮箱不能为空']
+            'email' => ['func' => ['\app\common\model\user::isEmail'], 'regx' => ['/^[\w\.]{1,16}@(qq\.com|163\.com|outlook\.com)$/', '错误的邮箱格式'], 'msg' => '邮箱不能为空']
         ]);
         if ($ret === true) {
             $token = createToken($email, 1);
