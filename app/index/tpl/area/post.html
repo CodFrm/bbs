@@ -1,0 +1,59 @@
+{include 'public/header'}
+<script src="__HOME__/static/editor.md/js/editormd.js"></script>
+<link rel="stylesheet" href="__HOME__/static/editor.md/css/editormd.css">
+<form id="edit" class="msgbox edit">
+    <div class="edit-title">
+        <select class="ipt-box ipt-account" name="area">
+            <option value="1">
+                测试分区
+            </option>
+            <option value="2">
+                测试分区2
+            </option>
+            <option value="3">
+                测试分区3
+            </option>
+        </select>
+        <input type="text" class="ipt-box ipt-account" name="title">
+    </div>
+    <div style="padding:10px;">
+        <div id="editormd">
+            <textarea style="display:none;"># test</textarea>
+        </div>
+        <input type="file" id="upfile" style="display:none"/>
+    </div>
+</form>
+<script>
+    $(function () {
+        var editor = editormd("editormd", {
+            width: "100%",
+            height: 640,
+            syncScrolling: "single",
+            path: "__HOME__/static/editor.md/lib/",
+            toolbarIcons: function () {
+                return ["undo", "redo", "|", "bold", "del", "italic", "quote", "|", "file", "link",
+                    "image", "code", "reference-link", "|", "h1", "h2", "h3",
+                    "h4", "h5", "h6", "|", "list-ul", "list-ol", "hr", "|", "preview", "watch",
+                    "fullscreen", "clear", "search", "|", "help", "info"
+                ]
+            },
+            toolbarIconsClass: {
+                file: "fa-file" // 指定一个FontAawsome的图标类
+            },
+            lang: {
+                toolbar: {
+                    file: "上传文件"
+                }
+            },
+            toolbarHandlers: {
+                file: function () {
+                    $('#upfile').click()
+                }
+            },
+            imageUpload: true,
+            imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL: "{{url_for('main.upload')}}"
+        });
+    });
+</script>
+{include 'public/footer'}

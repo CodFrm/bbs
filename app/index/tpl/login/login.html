@@ -31,13 +31,13 @@
                         switch (json.code) {
                             case 10001:
                             case 10002:
-                            case 10003:{
+                            case 10003: {
                                 $('input[name=username]').after('<span class="iconfont icon-cuowu error">' + json.msg + '</span>');
                                 break
                             }
                             case 10004:
                             case 10005:
-                            case 10006:{
+                            case 10006: {
                                 $('input[name=password]').after('<span class="iconfont icon-cuowu error">' + json.msg + '</span>');
                                 break;
                             }
@@ -57,7 +57,7 @@
                     }
                 },
                 error: function () {
-                    MessageBox.prompt('系统发生了一个错误!','warning');
+                    MessageBox.prompt('系统发生了一个错误!', 'warning');
                     $('#reg').removeAttr('disabled');
                 }
             });

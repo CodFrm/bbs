@@ -15,7 +15,8 @@ use app\common\ctrl\authCtrl;
 
 class index extends authCtrl {
     public function index() {
-        return '我是首页233';
+        view()->display();
+//        return '我是首页233';
     }
 
     public static function error($error, $to, $errType) {

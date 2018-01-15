@@ -20,7 +20,9 @@ function _css($file) {
 function _img($file) {
     return __HOME_ . '/static/images/' . $file;
 }
-
+function _avatar($file) {
+    return __HOME_ . '/static/images/avatar/' . $file;
+}
 /**
  * 对变量进行验证
  * @author Farmer
@@ -182,7 +184,7 @@ function config($key, $value = '') {
  */
 function isLogin() {
     if ($uid = _cookie('uid') && $token = _cookie('token')) {
-        return verifyToken(_cookie('uid'), _cookie('token'));
+        return verifyToken(_cookie('token'), _cookie('uid'));
     }
     return false;
 }

@@ -21,6 +21,12 @@
     text-align: center;
 }
 
+.login-min.ipt {
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
 .ipt {
     width: 350px;
     margin: 0 auto;
@@ -37,6 +43,11 @@
     box-sizing: border-box;
 }
 
+.login-min.ipt>.ipt-account {
+    padding: 0 4px;
+    height: 30px;
+}
+
 .ipt-account:not(:first-child) {
     margin-top: 15px;
 }
@@ -50,9 +61,13 @@
     font-size: 20px;
 }
 
+.login-min>.login-btn {
+    height: 40px;
+    line-height: 40px;
+}
+
 .ipt-min.ipt {
     margin-top: 10px;
-    width: 400px;
 }
 
 .ipt-min.ipt>* {
@@ -63,15 +78,16 @@
     color: #979797;
 }
 
-.cut{
+.cut {
     padding-left: 4px;
 }
+
 .cut::before {
     content: '|';
     font-size: 12px;
 }
 
-span.error{
+span.error {
     font-size: 12px;
     text-align: right;
     color: #ff1010;

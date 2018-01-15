@@ -16,6 +16,14 @@ use app\common\model\user;
 
 
 class login extends baseCtrl {
+    public function __construct() {
+        parent::__construct();
+        //如果已经登录就调回主页
+        if(isLogin()) {
+            header('Location:' . __HOME_);
+            exit(0);
+        }
+    }
 
     protected function errorCode($code, $error = '') {
         //方便前端通过错误代码提示错误

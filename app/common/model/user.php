@@ -47,7 +47,7 @@ class user {
      * @return mixed
      */
     public static function uidUser($uid) {
-        return db::table('user')->where(['uid' => $uid])->find();
+        return db::table('users')->where(['uid' => $uid])->find();
     }
 
     /**

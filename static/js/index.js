@@ -72,8 +72,8 @@ window.MessageBox = {
         }
         $('body').append(html);
         $('.message-box.prompt').css({
-            'width': $('.message-box.prompt').width() + 'px',
-            'right':0
+            'width': ($('.message-box.prompt').width() + 20) + 'px',
+            'right': 0
         });
         setTimeout(function () {
             $('.message-box.prompt').css({
