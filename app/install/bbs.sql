@@ -10,10 +10,26 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-01-12 01:15:03
+Date: 2018-01-20 14:36:45
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for bbs_area
+-- ----------------------------
+DROP TABLE IF EXISTS `bbs_area`;
+CREATE TABLE `bbs_area` (
+  `aid` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `remake` varchar(255) NOT NULL,
+  `father_aid` int(11) NOT NULL,
+  PRIMARY KEY (`aid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of bbs_area
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for bbs_auth
@@ -88,6 +104,25 @@ INSERT INTO `bbs_groupauth` VALUES ('1', '1');
 INSERT INTO `bbs_groupauth` VALUES ('2', '2');
 
 -- ----------------------------
+-- Table structure for bbs_posts
+-- ----------------------------
+DROP TABLE IF EXISTS `bbs_posts`;
+CREATE TABLE `bbs_posts` (
+  `tid` bigint(20) NOT NULL AUTO_INCREMENT,
+  `uid` bigint(20) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `mkdown` text NOT NULL,
+  `html` mediumblob NOT NULL,
+  `time` bigint(20) NOT NULL,
+  `aid` int(11) NOT NULL,
+  PRIMARY KEY (`tid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of bbs_posts
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for bbs_token
 -- ----------------------------
 DROP TABLE IF EXISTS `bbs_token`;
@@ -102,7 +137,7 @@ CREATE TABLE `bbs_token` (
 -- ----------------------------
 -- Records of bbs_token
 -- ----------------------------
-INSERT INTO `bbs_token` VALUES ('USWJ54jy5ln26Vjk', '1', '1515690846', '0');
+INSERT INTO `bbs_token` VALUES ('KpFtnAt1ln66BlFd', '1', '1516084441', '0');
 
 -- ----------------------------
 -- Table structure for bbs_usergroup
@@ -131,7 +166,7 @@ CREATE TABLE `bbs_users` (
   `username` varchar(32) NOT NULL,
   `password` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `email` varchar(64) NOT NULL,
-  `avatar` varchar(255) NOT NULL,
+  `avatar` varchar(128) NOT NULL,
   `reg_time` bigint(20) NOT NULL,
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;

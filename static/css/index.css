@@ -26,7 +26,7 @@ a {
     line-height: 46px;
 }
 
-.header>.left {
+.header > .left {
     cursor: pointer;
     display: inline-block;
     height: 46px;
@@ -51,7 +51,7 @@ a {
     vertical-align: top;
 }
 
-.nav>.nav-item {
+.nav > .nav-item {
     color: #ffffff;
     min-width: 50px;
     padding: 0 16px;
@@ -64,21 +64,21 @@ a {
     background: #3e94d1dd;
 }
 
-.nav>.nav-item:hover {
+.nav > .nav-item:hover {
     background: #3e94d1dd;
 }
 
-.nav>.right {
+.nav > .right {
     cursor: pointer;
     height: 46px;
 }
 
-.nav>.nav-item.right {
+.nav > .nav-item.right {
     padding: 0 8px;
     float: right;
 }
 
-.nav>div.right:hover .u-list {
+.nav > div.right:hover .u-list {
     display: block;
 }
 
@@ -100,7 +100,7 @@ a {
     vertical-align: top;
 }
 
-.nav>.right>.u-list {
+.nav > .right > .u-list {
     display: none;
     color: #000000;
     box-shadow: 0px 0px 5px 0px #c7c7c7;
@@ -120,21 +120,21 @@ a {
     padding: 10px;
 }
 
-.main>.left {
+.main > .left {
     display: inline-block;
     width: 820px;
 }
 
-.main>.right {
+.main > .right {
     display: inline-block;
 }
 
-.main>.right>div {
+.main > .right > div {
     width: 240px;
 }
 
-.main>.right>div:not(:first-child),
-.main>.right>.float-box>div:not(:first-child) {
+.main > .right > div:not(:first-child),
+.main > .right > .float-box > div:not(:first-child) {
     margin-top: 10px;
 }
 
@@ -156,7 +156,7 @@ a {
     opacity: 0;
 }
 
-.carousel>.car-title {
+.carousel > .car-title {
     position: absolute;
     bottom: 0;
     background: #00000050;
@@ -165,20 +165,20 @@ a {
     z-index: 10;
 }
 
-.car-title>.car-page {
+.car-title > .car-page {
     position: absolute;
     right: 10px;
     top: 30px;
 }
 
-.car-title>span {
+.car-title > span {
     color: #ffffff;
     font-size: 20px;
     line-height: 40px;
     margin-left: 4px;
 }
 
-.car-page>.car-page-item {
+.car-page > .car-page-item {
     cursor: pointer;
     width: 45px;
     height: 4px;
@@ -187,7 +187,7 @@ a {
     margin-left: 4px;
 }
 
-.car-item>.car-img {
+.car-item > .car-img {
     width: 100%;
     height: 100%;
 }
@@ -200,7 +200,7 @@ a {
     background: #ffffff;
 }
 
-.msgbox>.box-title {
+.msgbox > .box-title {
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     background: #fff;
@@ -218,7 +218,7 @@ a {
     height: 350px;
 }
 
-.user>.user-avatar {
+.user > .user-avatar {
     width: 60px;
     height: 60px;
     display: inline-block;
@@ -228,12 +228,12 @@ a {
     padding: 8px;
 }
 
-.user-msg>.username {
+.user-msg > .username {
     font-weight: bold;
     color: #000000;
 }
 
-.user>.user-msg {
+.user > .user-msg {
     vertical-align: top;
     display: inline-block;
     margin-left: 4px;
@@ -243,17 +243,17 @@ a {
     overflow: hidden;
 }
 
-.box-content>.user {
+.box-content > .user {
     border-bottom: 1px solid #e9e9e9;
 }
 
-.user-msg>.user-sign {
+.user-msg > .user-sign {
     margin-top: 4px;
     display: block;
     font-size: 14px;
 }
 
-.user-msg>.user-group {
+.user-msg > .user-group {
     display: inline-block;
     background: #E91E63;
     border-radius: 4px;
@@ -280,13 +280,13 @@ ul.article-list {
     padding-left: 0;
 }
 
-ul.article-list>li {
+ul.article-list > li {
     padding: 2px;
     padding-left: 8px;
     list-style: none;
 }
 
-ul.article-list>li>a {
+ul.article-list > li > a {
     display: inline-block;
     font-size: 14px;
     white-space: nowrap;
@@ -300,22 +300,23 @@ ul.article-list {
     padding: 4px;
 }
 
-ul.article-list.plate>li {
+ul.article-list.plate > li {
     width: calc(50% - 14px);
     display: inline-block;
 }
 
-ul.article-list>li:hover {
+ul.article-list > li:hover {
     background: rgb(221, 221, 221);
 }
 
-.msgbox>.box-footer {
+.msgbox > .box-footer {
     height: 50px;
     border-top: 1px solid #f1f1f1;
     width: 100%;
 }
 
 .btn {
+    display: inline-block;
     padding: 2px 10px;
     color: #fff;
     background: #3e94d1;
@@ -337,7 +338,7 @@ ul.article-list>li:hover {
     margin-top: 10px;
 }
 
-.article-list>.art-item {
+.article-list > .art-item {
     margin-bottom: 10px;
     padding: 10px 30px 0 30px;
     width: 760px;
@@ -382,7 +383,7 @@ ul.article-list>li:hover {
     color: #c0c0c0;
 }
 
-.art-footer>.user-avatar {
+.art-footer > .user-avatar {
     width: 30px;
     height: 30px;
 }
@@ -397,11 +398,11 @@ ul.article-list>li:hover {
     vertical-align: top;
 }
 
-.art-footer>.right>span {
+.art-footer > .right > span {
     margin-left: 15px;
 }
 
-.art-footer>.right .iconfont {
+.art-footer > .right .iconfont {
     margin-right: 4px;
 }
 
@@ -416,14 +417,14 @@ ul.article-list>li:hover {
     padding: 0 4px;
 }
 
-.search-box>.search-keydown {
+.search-box > .search-keydown {
     border: 0;
     line-height: 25px;
     outline: none;
     width: 182px;
 }
 
-.search-box>#search {
+.search-box > #search {
     border: 0;
     outline: none;
     float: right;
@@ -462,7 +463,7 @@ ul.article-list>li:hover {
     box-shadow: 0px 0px 0px 0px #3E94D1;
 }
 
-.message-box>.prompt-icon {
+.message-box > .prompt-icon {
     float: left;
     margin: 0 8px;
 }
@@ -475,7 +476,7 @@ ul.article-list>li:hover {
     color: #ff1010;
 }
 
-.message-box>.message-header {
+.message-box > .message-header {
     height: 40px;
     line-height: 40px;
     padding: 0px 8px;
@@ -485,14 +486,14 @@ ul.article-list>li:hover {
     box-sizing: border-box;
 }
 
-.message-header>.message-close {
+.message-header > .message-close {
     font-size: 18px;
     cursor: pointer;
     margin-right: 8px;
     float: right;
 }
 
-.message-header>.message-close:hover {
+.message-header > .message-close:hover {
     color: #33CDC7;
 }
 
@@ -503,10 +504,10 @@ ul.article-list>li:hover {
 }
 
 .edit .edit-title {
-    padding: 20px 10px;
+    padding: 20px 10px 10px;
 }
 
-.edit>.edit-title>.ipt-box {
+.edit .ipt-box {
     margin: 0;
     padding: 2px 6px;
     width: 100px;
@@ -516,12 +517,18 @@ ul.article-list>li:hover {
     line-height: 24px;
 }
 
-.ipt-account.ipt-box[name=title] {
-    margin-left: 10px;
-    width: calc(100% - 116px);
+.ipt-box.ipt-account[name=area] {
+    margin-top: 0;
 }
 
-.edit>.editor {
+.ipt-account.ipt-box[name=title] {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+}
+
+.edit > .editor {
     height: 720px;
 }
 
@@ -533,8 +540,8 @@ ul.article-list>li:hover {
     overflow: hidden;
 }
 
-.editor>.source-text,
-.editor>.mkdown {
+.editor > .source-text,
+.editor > .mkdown {
     float: left;
     font-size: 15px;
     outline: none;
@@ -547,7 +554,7 @@ ul.article-list>li:hover {
     overflow-y: auto;
 }
 
-.source-text>.mktext {
+.source-text > .mktext {
     float: left;
     width: calc(100% - 20px);
     height: 100%;
@@ -556,14 +563,14 @@ ul.article-list>li:hover {
     box-sizing: border-box;
 }
 
-.source-text>.line-number {
+.source-text > .line-number {
     float: left;
     width: 20px;
     background: #f1f1f1;
     height: 100%;
 }
 
-.editor>.mkdown {
+.editor > .mkdown {
     border: 0;
 }
 
@@ -571,13 +578,13 @@ ul.article-list>li:hover {
     font-family: "YaHei Consolas Hybrid", Consolas, "微软雅黑", "Meiryo UI", "Malgun Gothic", "Segoe UI", "Trebuchet MS", Helvetica, Monaco, courier, monospace;
 }
 
-.editor>.source-text::-webkit-scrollbar {
+.editor > .source-text::-webkit-scrollbar {
     height: 10px;
     width: 7px;
     background: rgba(0, 0, 0, .1);
 }
 
-.editor>.source-text::-webkit-scrollbar-thumb {
+.editor > .source-text::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, .3);
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
@@ -586,14 +593,14 @@ ul.article-list>li:hover {
     border-radius: 6px;
 }
 
-.editor>.tools {
+.editor > .tools {
     height: 30px;
     line-height: 30px;
     padding: 0 4px 0 4px;
     border-bottom: 1px solid #d6d6d6;
 }
 
-.tools>.option {
+.tools > .option {
     color: #3a3a3a;
     float: left;
     height: 30px;
@@ -604,6 +611,15 @@ ul.article-list>li:hover {
     cursor: pointer;
 }
 
-.tools>.option:hover {
+.tools > .option:hover {
     background: #ececec;
+}
+
+#log {
+    font-size: 12px;
+    color: #c0c0c0;
+    position: relative;
+    top: -4px;
+    display: block;
+    line-height: 0;
 }

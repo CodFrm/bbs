@@ -1,33 +1,37 @@
 {include 'public/header'}
 <script src="__HOME__/static/editor.md/js/editormd.js"></script>
 <link rel="stylesheet" href="__HOME__/static/editor.md/css/editormd.css">
-<form id="edit" class="msgbox edit">
+<form action="{:url('post')}" method="post" id="edit" class="msgbox edit" onsubmit="return editPost(this);">
     <div class="edit-title">
-        <select class="ipt-box ipt-account" name="area">
-            <option value="1">
-                测试分区
-            </option>
-            <option value="2">
-                测试分区2
-            </option>
-            <option value="3">
-                测试分区3
-            </option>
-        </select>
-        <input type="text" class="ipt-box ipt-account" name="title">
+        <input type="text" class="ipt-box ipt-account" name="title" placeholder="输入标题,开始写文章">
     </div>
-    <div style="padding:10px;">
+    <div style="padding:10px;overflow: hidden;">
         <div id="editormd">
             <textarea style="display:none;"># test</textarea>
         </div>
+        <span id="log">状态</span>
         <input type="file" id="upfile" style="display:none"/>
+        <div style="overflow: hidden;padding: 2px;line-height: 35px">
+            <lable>选择发布的分区:</lable>
+            <select name="area" class="ipt-box ipt-account">
+                <option value="1">
+                    测试分区
+                </option>
+                <option value="2">
+                    测试2
+                </option>
+            </select>
+            <input id="post" type="submit" class="btn" style="height: 35px;float: right;padding: 2px 15px;"
+                   value="发表帖子"></input>
+        </div>
+
     </div>
 </form>
 <script>
     $(function () {
         var editor = editormd("editormd", {
             width: "100%",
-            height: 640,
+            height: 660,
             syncScrolling: "single",
             path: "__HOME__/static/editor.md/lib/",
             toolbarIcons: function () {
@@ -47,13 +51,91 @@
             },
             toolbarHandlers: {
                 file: function () {
-                    $('#upfile').click()
+                    dialog = this.createDialog({
+                        title: '添加文件',
+                        width: 465,
+                        height: 254,
+                        name: "editormd-image-dialog",
+                        content: '<div class="editormd-form"><label>文件地址</label><input type="text" data-url />' +
+                        '<div class="editormd-file-input">' +
+                        '<input type="file" name="editormd-image-file">' +
+                        '<input type="submit" value="本地上传"></div><br/><label>文件说明</label><input type="text" value="" data-alt /><br/><label>文件链接</label><input type="text" value="http://" data-link /><br/></div>',
+                        mask: true,
+                        drag: true,
+                        lockScreen: true,
+                        maskStyle: {
+                            opacity: 0.1,
+                            backgroundColor: '#ffffff'
+                        },
+                        buttons: {
+                            enter: ['确定', function () {
+                                var url = this.find("[data-url]").val();
+                                var alt = this.find("[data-alt]").val();
+                                var link = this.find("[data-link]").val();
+
+                                if (url === "") {
+                                    alert(imageLang.imageURLEmpty);
+                                    return false;
+                                }
+
+                                var altAttr = (alt !== "") ? " \"" + alt + "\"" : "";
+
+                                if (link === "" || link === "http://") {
+                                    cm.replaceSelection("![" + alt + "](" + url + altAttr + ")");
+                                }
+                                else {
+                                    cm.replaceSelection("[![" + alt + "](" + url + altAttr + ")](" + link + altAttr + ")");
+                                }
+
+                                if (alt === "") {
+                                    cm.setCursor(cursor.line, cursor.ch + 2);
+                                }
+
+                                this.hide().lockScreen(false).hideMask();
+
+                                return false;
+                            }],
+
+                            cancel: ['取消', function () {
+                                this.hide().lockScreen(false).hideMask();
+
+                                return false;
+                            }]
+                        }
+                    });
+                    // $('#upfile').click()
                 }
             },
             imageUpload: true,
             imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
             imageUploadURL: "{{url_for('main.upload')}}"
         });
+
+        setInterval(function () {
+            console.log(editor.getMarkdown());
+            $('#log').text('已经自动保存  ' + new Date().toLocaleTimeString());
+        }, 10000);
+
+        window.editPost= function (form) {
+            $('#post').attr('disabled', 'true');
+            var open = function () {
+                $('#post').removeAttr('disabled');
+            }
+            var md = editor.getMarkdown();
+            if (form.title.value.length > 64 || form.title.value.length < 3) {
+                MessageBox.prompt('标题不能超过64个字符小于3个字符', 'warning').success(open);
+                return false;
+            } else if (md.length <= 16) {
+                MessageBox.prompt('内容太少了,再加一点吧...(16-10000字)', 'warning').success(open);
+                return false;
+            } else if (md.length >= 10000) {
+                MessageBox.prompt('太多了,太多了,受不了(16-10000字)', 'warning').success(open);
+                return false;
+            }
+            console.log(form.area.value);
+            return false;
+        }
     });
+
 </script>
 {include 'public/footer'}
