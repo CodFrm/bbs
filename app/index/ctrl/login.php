@@ -19,7 +19,7 @@ class login extends baseCtrl {
     public function __construct() {
         parent::__construct();
         //如果已经登录就调回主页
-        if(isLogin()) {
+        if (isLogin()) {
             header('Location:' . __HOME_);
             exit(0);
         }
@@ -31,6 +31,7 @@ class login extends baseCtrl {
             '登录成功' => 0,
             '用户名已经被注册' => 10001,
             '用户名不能为空' => 10002,
+            '用户名格式错误' => 10003,
             '用户不存在' => 10003,
             '密码不符合规范' => 10004,
             '密码错误' => 10005,
@@ -76,7 +77,7 @@ class login extends baseCtrl {
 
     public function email($email) {
         $ret = verify($_GET, [
-            'email' => ['func' => ['\app\common\model\user::isEmail'], 'regx' => ['/^[\w\.]{1,16}@(qq\.com|163\.com|outlook\.com)$/', '错误的邮箱格式'], 'msg' => '邮箱不能为空']
+            'email' => ['func' => ['\app\common\model\user::isEmail'], 'regx' => ['/^[\w\.]{1,16}@(qq\.com|foxmail\.com|163\.com|outlook\.com)$/', '错误的邮箱格式'], 'msg' => '邮箱不能为空']
         ]);
         if ($ret === true) {
             $token = createToken($email, 1);

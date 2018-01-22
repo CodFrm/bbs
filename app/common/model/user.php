@@ -113,7 +113,7 @@ class user {
                 }, 'email'], 'msg' => '错误的令牌'],
             'username' => ['func' => ['\app\common\model\user::isUser'], 'regex' => ['/^[\x{4e00}-\x{9fa5}\w\@\.]{2,16}$/u', '用户名格式错误'], 'msg' => '用户名不能为空', 'sql' => 'username'],
             'password' => ['regex' => ['/^[\\~!@#$%^&*()-_=+|{}\[\], .?\/:;\'\"\d\w]{6,16}$/', '密码不符合规范'], 'msg' => '请输入密码', 'sql' => 'password'],
-            'email' => ['func' => ['\app\common\model\user::isEmail'], 'regex' => ['/^[\w\.]{1,16}@(qq\.com|163\.com|outlook\.com)$/', '邮箱格式错误'], 'msg' => '邮箱不能为空', 'sql' => 'email'],
+            'email' => ['func' => ['\app\common\model\user::isEmail'], 'regex' => ['/^[\w\.]{1,16}@(qq\.com|foxmail.com|163\.com|outlook\.com)$/', '邮箱格式错误'], 'msg' => '邮箱不能为空', 'sql' => 'email'],
         ], $data);
         if ($ret === true) {
             //添加用户

@@ -9,10 +9,12 @@
  */
 
 return [
+    'rest' => true,
     'route' => [
         '*' => [
             'users#p' => 'index->index->users',
-            'test'=>'login->index'
+            'test' => 'login->index',
+            't/{$tid}/{$page}.html'=>'index->index->article'
         ]
     ]
 ];

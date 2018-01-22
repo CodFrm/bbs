@@ -34,4 +34,8 @@ class index extends authCtrl {
         \view()->assign('errType', $errType);
         \view()->display('index/error');
     }
+
+    public function article($tid){
+        view()->display();
+    }
 }

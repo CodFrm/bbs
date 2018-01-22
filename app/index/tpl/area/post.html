@@ -7,20 +7,15 @@
     </div>
     <div style="padding:10px;overflow: hidden;">
         <div id="editormd">
-            <textarea style="display:none;"># test</textarea>
+            <textarea name="md"># test</textarea>
         </div>
         <span id="log">状态</span>
         <input type="file" id="upfile" style="display:none"/>
         <div style="overflow: hidden;padding: 2px;line-height: 35px">
-            <lable>选择发布的分区:</lable>
-            <select name="area" class="ipt-box ipt-account">
-                <option value="1">
-                    测试分区
-                </option>
-                <option value="2">
-                    测试2
-                </option>
-            </select>
+            <lable>选择分区:</lable>
+            <div id="area">
+
+            </div>
             <input id="post" type="submit" class="btn" style="height: 35px;float: right;padding: 2px 15px;"
                    value="发表帖子"></input>
         </div>
@@ -28,6 +23,32 @@
     </div>
 </form>
 <script>
+    areaSelect({value: 0});
+
+    function areaSelect(select) {
+        $.ajax({
+            url: "{:url('area')}",
+            data: {aid: select.value},
+            success: function (json) {
+                if (json.length > 0) {
+                    var newSelect = $('<select></select>').attr('class', 'ipt-box ipt-account area');
+                    for (var i in json) {
+                        newSelect.append('<option value="' + json[i].aid + '">' + json[i].title + '</option>');
+                    }
+                    newSelect.append();
+                    newSelect.change(function () {
+                        $(this).nextAll().remove();
+                        areaSelect(this);
+                    });
+                    $('#area').append(newSelect);
+                    areaSelect(newSelect[0]);
+                } else {
+                    $(select).attr('name', 'area');
+                }
+            }
+        });
+    }
+
     $(function () {
         var editor = editormd("editormd", {
             width: "100%",
@@ -112,11 +133,11 @@
         });
 
         setInterval(function () {
-            console.log(editor.getMarkdown());
-            $('#log').text('已经自动保存  ' + new Date().toLocaleTimeString());
+            // console.log(editor.getMarkdown());
+            // $('#log').text('已经自动保存  ' + new Date().toLocaleTimeString());
         }, 10000);
 
-        window.editPost= function (form) {
+        window.editPost = function (form) {
             $('#post').attr('disabled', 'true');
             var open = function () {
                 $('#post').removeAttr('disabled');
@@ -132,10 +153,27 @@
                 MessageBox.prompt('太多了,太多了,受不了(16-10000字)', 'warning').success(open);
                 return false;
             }
-            console.log(form.area.value);
+            $.ajax({
+                url: "{:url('post')}",
+                type: 'post',
+                data: $(form).serialize(),
+                success: function (obj) {
+                    if (obj.code == 0) {
+                        MessageBox.prompt(obj.msg)
+                        setTimeout(function () {
+                            window.location = '__HOME__/t/' + obj.tid + '/1.html';
+                        }, 3000);
+                    } else {
+                        MessageBox.prompt(obj.msg, 'warning')
+                        $('#post').removeAttr('disabled');
+                    }
+                },
+                error: function () {
+                    $('#post').removeAttr('disabled');
+                }
+            });
             return false;
         }
     });
-
 </script>
 {include 'public/footer'}

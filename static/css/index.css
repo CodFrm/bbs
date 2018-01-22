@@ -517,8 +517,17 @@ ul.article-list > li:hover {
     line-height: 24px;
 }
 
-.ipt-box.ipt-account[name=area] {
+.ipt-box.ipt-account.area {
     margin-top: 0;
+
+}
+
+.ipt-box.ipt-account.area:not(first-child) {
+    margin-left: 6px;
+}
+
+#area {
+    display: inline-block;
 }
 
 .ipt-account.ipt-box[name=title] {
